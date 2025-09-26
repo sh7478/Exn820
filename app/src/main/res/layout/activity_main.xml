@@ -31,24 +31,26 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/firstParam"
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:layout_weight="45"
+                android:gravity="center"
+                android:text="a"
+                android:textSize="30sp" />
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_weight="10" />
 
             <EditText
-                android:id="@+id/editTextNumberSigned"
+                android:id="@+id/etFirstParam"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="45"
                 android:ems="10"
-                android:inputType="numberSigned" />
+                android:inputType="numberSigned|numberDecimal" />
         </LinearLayout>
 
         <Space
@@ -65,19 +67,24 @@
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_height="0dp"
+                android:layout_weight="45"
+                android:gravity="center"
+                android:text="b"
+                android:textSize="30sp" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="0dp"
+                android:layout_weight="10" />
 
             <EditText
-                android:id="@+id/editTextNumberSigned2"
+                android:id="@+id/etSecondParam"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="45"
                 android:ems="10"
-                android:inputType="numberSigned" />
+                android:inputType="numberSigned|numberDecimal" />
         </LinearLayout>
 
         <Space
@@ -94,19 +101,24 @@
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_height="0dp"
+                android:layout_weight="45"
+                android:gravity="center"
+                android:text="c"
+                android:textSize="30sp" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="0dp"
+                android:layout_weight="10" />
 
             <EditText
-                android:id="@+id/editTextNumberSigned3"
+                android:id="@+id/etThirdParam"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="45"
                 android:ems="10"
-                android:inputType="numberSigned" />
+                android:inputType="numberSigned|numberDecimal" />
         </LinearLayout>
 
         <Space
@@ -118,7 +130,21 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="50" />
+        android:layout_weight="5" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:onClick="solve"
+        android:text="Solve this equation"
+        android:textSize="22sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="35" />
 
     <Button
         android:id="@+id/button"
