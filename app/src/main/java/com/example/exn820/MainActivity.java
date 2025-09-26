@@ -3,6 +3,7 @@ package com.example.exn820;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,38 +24,63 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        etFirstParam = findViewById(R.id.etFirstParam);
+        etSecondParam = findViewById(R.id.etSecondParam);
+        etThirdParam = findViewById(R.id.etThirdParam);
     }
 
     public void solve(View view) {
-        String text1 = etFirstParam.getText().toString();
-        if(text1.charAt(0) >= '0' && text1.charAt(0) <= '9')
-        {
+        param1 = preGetNum(etFirstParam);
+        param2 = preGetNum(etSecondParam);
+        param3 = preGetNum(etThirdParam);
+    }
 
+    public double preGetNum(EditText etParam)
+    {
+        String text = etParam.getText().toString();
+        if(text.length() > 0) {
+            if (text.charAt(0) >= '0' && text.charAt(0) <= '9') {
+                return getNum(text);
+            } else {
+                if(text.length() == 2 && text.indexOf('-') != -1 && text.indexOf('.') != -1)
+                {
+                    return -9.9;
+                }
+                if(text.length() > 1 ) {
+                    return getNum(text.substring(1, text.length())) * (-1);
+                }
+                return -9.9;
+            }
         }
         else
         {
-
+            return -9.9;
         }
+
     }
-    public int getNum(EditText etParam)
+    public double getNum(String param)
     {
-        String param = etParam.getText().toString();
         double num1 = 0;
         int dot;
         int len;
-        int num2;
+        double num2 = 0;
         int multy = 1;
         dot = param.indexOf('.');
-        num1 = (int)(param.substring(0, dot));
-        if(param.length() - 1 > dot + 1)
+        if(dot == -1)
+        {
+            return Integer.parseInt(param.substring(0, param.length()));
+        }
+        num1 = Integer.parseInt(param.substring(0, dot));
+        if(param.length() - 1 >= dot + 1)
         {
             len = param.length()-1-dot;
             for(int i = 0; i < len; i++)
             {
                 num2 *= 10;
-                num2 += (int)(param.charAt(dot + i + 1));
+                num2 += (param.charAt(dot + i + 1)) - 48;
                 multy *= 10;
             }
+
             num2 /= multy;
             num1 += num2;
         }
