@@ -1,5 +1,6 @@
 package com.example.exn820;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -35,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         param1 = preGetNum(etFirstParam);
         param2 = preGetNum(etSecondParam);
         param3 = preGetNum(etThirdParam);
+        Intent params = new Intent(this, QuadraticSolverActivity.class);
+        params.putExtra("a", param1);
+        params.putExtra("b", param2);
+        params.putExtra("c", param3);
+        startActivity(params);
     }
 
     public double preGetNum(EditText etParam)
