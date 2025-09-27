@@ -1,6 +1,10 @@
 package com.example.exn820;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,9 +14,30 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class QuadraticSolverActivity extends AppCompatActivity {
 
+    TextView answer1,answer2;
+    ImageView graphView;
+    Intent getParams;
+    double param1,param2,param3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quadratic_solver);
+        answer1 = findViewById(R.id.answer1);
+        answer2 = findViewById(R.id.answer2);
+        graphView = findViewById(R.id.graphView);
+        getParams = getIntent();
+        param1 = getParams.getDoubleExtra("a", -9.999);
+        param2 = getParams.getDoubleExtra("b", -9.999);
+        param3 = getParams.getDoubleExtra("c", -9.999);
+        solver(param1, param2, param3);
+
+    }
+
+    public void solver(double a, double b, double c) {
+
+    }
+
+    public void goBack(View view) {
+
     }
 }
