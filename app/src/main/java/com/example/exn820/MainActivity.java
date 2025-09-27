@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText etFirstParam;
@@ -85,5 +87,29 @@ public class MainActivity extends AppCompatActivity {
             num1 += num2;
         }
         return num1;
+    }
+
+    public void randomParams(View view) {
+        param1 = randomParamNumbers();
+        etFirstParam.setText("" + param1);
+        param2 = randomParamNumbers();
+        etSecondParam.setText("" + param2);
+        param3 = randomParamNumbers();
+        etThirdParam.setText("" + param3);
+    }
+
+    public double randomParamNumbers()
+    {
+        Random rnd = new Random();
+        int num;
+        double num2, param;
+        param = -100 + (200) * Math.random();
+        num = (int)param;
+        param -= num;
+        param *= 100;
+        num2 = (int)param;
+        num2 /= 100;
+        param = num + num2;
+        return param;
     }
 }
